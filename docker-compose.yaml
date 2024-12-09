@@ -34,4 +34,4 @@ volumes:
   minio-data:
 networks:
   app-network:
-  driver: bridge
+    driver: bridge
