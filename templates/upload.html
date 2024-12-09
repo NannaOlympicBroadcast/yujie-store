@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>上传新御姐资料</h2>
+<form method="POST" enctype="multipart/form-data">
+    <div>
+        <label>御姐名称：</label>
+        <input type="text" name="name" required>
+    </div>
+    <div>
+        <label>人设描述：</label><br/>
+        <textarea name="description" rows="5" cols="50" required></textarea>
+    </div>
+    <div>
+        <label>经典语录：</label><br/>
+        <textarea name="quote" rows="2" cols="50"></textarea>
+    </div>
+    <div>
+        <label>头像图片 (可选)：</label>
+        <input type="file" name="image_file" accept="image/*">
+    </div>
+    <div>
+        <label>故事PDF (可选)：</label>
+        <input type="file" name="pdf_file" accept="application/pdf">
+    </div>
+    <div>
+        <button type="submit">上传</button>
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>与{{ ojou.name }}聊天</h2>
+<div class="chat-window">
+  {% for role, msg in conversation %}
+  <div class="message {% if role == 'user' %}user-message{% else %}bot-response{% endif %}">
+    <strong>{% if role == 'user' %}你{% else %}{{ ojou.name }}{% endif %}：</strong>
+    <p>{{ msg }}</p>
+  </div>
+  {% endfor %}
+</div>
+
+<form method="POST">
+    <input type="text" name="user_input" placeholder="说点什么..." required style="width:80%;">
+    <button type="submit">发送</button>
+</form>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ ojou.name }}的详情</h2>
+<p><strong>人设描述：</strong><br>{{ ojou.description }}</p>
+{% if ojou.quote %}
+<p><strong>经典语录：</strong><br>{{ ojou.quote }}</p>
+{% endif %}
+
+{% if image_url %}
+<p><strong>形象图：</strong><br><img src="{{ image_url }}" alt="{{ ojou.name }}" style="max-width:200px;"></p>
+{% endif %}
+
+{% if pdf_url %}
+<p><strong>故事PDF：</strong><br><a href="{{ pdf_url }}" target="_blank">点击查看故事</a></p>
+{% endif %}
+
+<p><a href="{{ url_for('chat', ojou_id=ojou.id) }}">与{{ ojou.name }}聊天</a></p>
+{% endblock %}

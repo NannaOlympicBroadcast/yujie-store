@@ -1,0 +1,37 @@
+services:
+
+  ollama:
+    container_name: ollama
+    image: yanyancr.cn/ollama/ollama:latest  # 如果需要，替换为特定的 Ollama 版本
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            capabilities: ["gpu"]
+            count: all  # 根据需要调整 GPU 的数量
+    volumes:
+      - ollama:/root/.ollama
+    restart: always
+  minio:
+    image: yanyancr.cn/minio/minio:latest
+    ports:
+      - "9000:9000"
+    volumes:
+      - minio-data:/data
+  web:
+    build: .
+    ports:
+      - "80:5000"
+    volumes:
+      - .:/app
+    depends_on:
+      - minio
+      - ollama
+
+volumes:
+  ollama:
+  minio-data:
+networks:
+  app-network:
+  driver: bridge

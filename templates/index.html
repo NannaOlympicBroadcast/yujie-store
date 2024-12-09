@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>所有御姐列表</h2>
+<ul>
+{% for ojou in ojous %}
+    <li>
+        <a href="{{ url_for('detail', ojou_id=ojou.id) }}">{{ ojou.name }}</a>
+        - {{ ojou.description[:30] }}...
+    </li>
+{% endfor %}
+</ul>
+{% endblock %}

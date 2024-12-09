@@ -1,0 +1,29 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+}
+
+header, nav {
+    margin-bottom: 20px;
+}
+
+.chat-window {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 100%;
+    height: 300px;
+    overflow-y: scroll;
+    margin-bottom: 15px;
+}
+
+.message {
+    margin-bottom: 10px;
+}
+
+.user-message {
+    text-align: right;
+}
+
+.bot-response {
+    text-align: left;
+}
